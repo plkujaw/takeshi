@@ -10,7 +10,7 @@ from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 # Specify the directory path
-directory = '/mount/src/takeshi/bin'
+directory = '/mount/src/takeshi/bin/ffmpeg'
 
 # List all files and directories in the specified directory
 folders_and_files = os.listdir(directory)
