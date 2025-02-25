@@ -10,17 +10,10 @@ from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 import subprocess
 
-os.environ["FFMPEG_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffmpeg'
-os.environ["FFPROBE_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
-
-st.write(f"FFMPEG_BINARY: {os.getenv('FFMPEG_BINARY')}")
-st.write(f"FFPROBE_BINARY: {os.getenv('FFPROBE_BINARY')}")
-
-import subprocess
 
 try:
     # Run ffmpeg to get version info
-    result = subprocess.run(['/mount/src/takeshi/bin/ffmpeg/ffmpeg', '-version'], capture_output=True, text=True)
+    result = subprocess.run(['/mount/src/takeshi/bin/ffmpeg', '-version'], capture_output=True, text=True)
     st.write(f"FFmpeg version info: {result.stdout}")
 except Exception as e:
     st.error(f"FFmpeg command failed: {e}")
