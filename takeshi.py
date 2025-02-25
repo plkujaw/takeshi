@@ -9,15 +9,13 @@ from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
-# Specify the directory path
-directory = '/mount/src/takeshi/bin/ffmpeg'
+import os
+ffmpeg_path = '/mount/src/takeshi/bin/ffmpeg/ffmpeg'
+ffprobe_path = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
 
-# List all files and directories in the specified directory
-folders_and_files = os.listdir(directory)
-
-# Display the list
-st.write(f"Contents of {directory}:", folders_and_files)
-
+# Check if the files are executable
+st.write(f"FFmpeg executable exists: {os.access(ffmpeg_path, os.X_OK)}")
+st.write(f"FFprobe executable exists: {os.access(ffprobe_path, os.X_OK)}")
 
 def load_model(model_choice):
     model_map = {
