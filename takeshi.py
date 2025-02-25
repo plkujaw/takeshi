@@ -19,6 +19,7 @@ st.write("FFprobe path:", os.path.abspath(ffprobe_path))
 os.environ["FFMPEG_BINARY"] = ffmpeg_path
 os.environ["FFPROBE_BINARY"] = ffprobe_path
 
+st.write("Current working directory:", os.getcwd())
 
 try:
     ffmpeg.probe('source_video.mp4')  # Test with a sample video or frame
