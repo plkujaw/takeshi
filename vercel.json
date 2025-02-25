@@ -1,0 +1,16 @@
+{
+  "version": 0.1,
+  "name": "takeshi",
+  "builds": [
+    {
+      "src": "takeshi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "takeshi.py"
+    }
+  ]
+}
