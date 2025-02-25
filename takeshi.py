@@ -1,4 +1,4 @@
-import streamlit as st
+ćimport streamlit as st
 import os
 import yt_dlp
 import ffmpeg
@@ -8,6 +8,9 @@ from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
+
+ffmpeg_path = "./bin/ffmpeg"  # Path to the downloaded FFmpeg binary
+os.environ["FFMPEG_BINARY"] = ffmpeg_path
 
 def load_model(model_choice):
     model_map = {
