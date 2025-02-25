@@ -9,13 +9,11 @@ from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
-import os
-ffmpeg_path = '/mount/src/takeshi/bin/ffmpeg/ffmpeg'
-ffprobe_path = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
+os.environ["FFMPEG_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffmpeg'
+os.environ["FFPROBE_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
 
-# Check if the files are executable
-st.write(f"FFmpeg executable exists: {os.access(ffmpeg_path, os.X_OK)}")
-st.write(f"FFprobe executable exists: {os.access(ffprobe_path, os.X_OK)}")
+st.write(f"FFMPEG_BINARY: {os.getenv('FFMPEG_BINARY')}")
+st.write(f"FFPROBE_BINARY: {os.getenv('FFPROBE_BINARY')}")
 
 def load_model(model_choice):
     model_map = {
