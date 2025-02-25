@@ -9,13 +9,19 @@ from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
+ffmpeg_path = "./bin/ffmpeg/ffmpeg"
+ffprobe_path = "./bin/ffmpeg/ffprobe"
+
+os.environ["FFMPEG_BINARY"] = ffmpeg_path
+os.environ["FFPROBE_BINARY"] = ffprobe_path
+
+st.write("Current working directory:", os.getcwd())
+
 try:
     ffmpeg.probe('source_video.mp4')  # Test with a sample video or frame
     st.success("FFmpeg is available and working!")
 except ffmpeg.Error as e:
     st.error(f"FFmpeg error: {e}")
-
-
 
 def load_model(model_choice):
     model_map = {
