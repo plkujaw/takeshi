@@ -15,6 +15,16 @@ os.environ["FFPROBE_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
 st.write(f"FFMPEG_BINARY: {os.getenv('FFMPEG_BINARY')}")
 st.write(f"FFPROBE_BINARY: {os.getenv('FFPROBE_BINARY')}")
 
+import subprocess
+
+try:
+    # Run ffmpeg to get version info
+    result = subprocess.run(['/mount/src/takeshi/bin/ffmpeg/ffmpeg', '-version'], capture_output=True, text=True)
+    st.write(f"FFmpeg version info: {result.stdout}")
+except Exception as e:
+    st.error(f"FFmpeg command failed: {e}")
+
+
 def load_model(model_choice):
     model_map = {
         "Anything-V5": "stablediffusionapi/anything-v5",
