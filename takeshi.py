@@ -12,13 +12,8 @@ from transformers import BlipProcessor, BlipForConditionalGeneration
 ffmpeg_path = "./bin/ffmpeg/ffmpeg"  # Path to the downloaded FFmpeg binary
 os.environ["FFMPEG_BINARY"] = ffmpeg_path
 
-# Ensure that the binary is available
-if os.path.exists(ffmpeg_path):
-    os.environ["FFMPEG_BINARY"] = ffmpeg_path
-    st.info(f"Using FFmpeg binary located at: {ffmpeg_path}")
-else:
-    st.error("FFmpeg binary not found at the specified path.")
-    st.stop()
+files_in_project = os.listdir('./projects')
+st.write(files_in_project)
 
 
 def load_model(model_choice):
