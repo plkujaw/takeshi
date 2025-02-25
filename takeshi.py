@@ -12,10 +12,13 @@ from transformers import BlipProcessor, BlipForConditionalGeneration
 ffmpeg_path = "./bin/ffmpeg/ffmpeg"
 ffprobe_path = "./bin/ffmpeg/ffprobe"
 
+st.write("FFmpeg path:", os.path.abspath(ffmpeg_path))
+st.write("FFprobe path:", os.path.abspath(ffprobe_path))
+
+
 os.environ["FFMPEG_BINARY"] = ffmpeg_path
 os.environ["FFPROBE_BINARY"] = ffprobe_path
 
-st.write("Current working directory:", os.getcwd())
 
 try:
     ffmpeg.probe('source_video.mp4')  # Test with a sample video or frame
