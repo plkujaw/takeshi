@@ -8,6 +8,7 @@ from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
+import subprocess
 
 os.environ["FFMPEG_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffmpeg'
 os.environ["FFPROBE_BINARY"] = '/mount/src/takeshi/bin/ffmpeg/ffprobe'
