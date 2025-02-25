@@ -10,6 +10,7 @@ from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 import subprocess
 
+os.chmod("/mount/src/takeshi/bin/ffmpeg/ffmpeg", 0o755)
 
 try:
     # Run ffmpeg to get version info
