@@ -16,10 +16,27 @@ st.write("FFmpeg path:", os.path.abspath(ffmpeg_path))
 st.write("FFprobe path:", os.path.abspath(ffprobe_path))
 
 
-os.environ["FFMPEG_BINARY"] = ffmpeg_path
-os.environ["FFPROBE_BINARY"] = ffprobe_path
+os.environ["FFMPEG_BINARY"] = "/mount/src/takeshi/bin/ffmpeg/ffmpeg"
+os.environ["FFPROBE_BINARY"] = "/mount/src/takeshi/bin/ffmpeg/ffprobe"
 
 st.write("Current working directory:", os.getcwd())
+
+import ffmpeg
+
+try:
+    # Test FFmpeg binary location
+    ffmpeg.probe('/mount/src/takeshi/bin/ffmpeg/ffmpeg')
+    st.success("FFmpeg is available and working!")
+except ffmpeg.Error as e:
+    st.error(f"FFmpeg error: {e}")
+
+try:
+    # Test FFprobe binary location
+    ffmpeg.probe('/mount/src/takeshi/bin/ffmpeg/ffprobe')
+    st.success("FFprobe is available and working!")
+except ffmpeg.Error as e:
+    st.error(f"FFprobe error: {e}")
+
 
 try:
     ffmpeg.probe('source_video.mp4')  # Test with a sample video or frame
