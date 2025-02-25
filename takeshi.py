@@ -9,11 +9,12 @@ from PIL import Image
 from accelerate import Accelerator
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
-ffmpeg_path = "./bin/ffmpeg/ffmpeg"  # Path to the downloaded FFmpeg binary
-os.environ["FFMPEG_BINARY"] = ffmpeg_path
+try:
+    ffmpeg.probe('source_video.mp4')  # Test with a sample video or frame
+    st.success("FFmpeg is available and working!")
+except ffmpeg.Error as e:
+    st.error(f"FFmpeg error: {e}")
 
-files_in_project = os.listdir('./projects')
-st.write(files_in_project)
 
 
 def load_model(model_choice):
